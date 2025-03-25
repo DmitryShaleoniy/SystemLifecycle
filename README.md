@@ -5,217 +5,26 @@
 
 ### Компонент "База данных"
 
-```plantuml
-!include <C4/C4_Container>
+[![](https://img.plantuml.biz/plantuml/dsvg/VLH1RjD05Dtx54DMHQh4fak4Ad83E41brTDYvDXWZnSLGaeS0Oi8ebQiM03b1Aw9gN4Rvmf_RiJxuwanJaEaIAEP-U-z__uR7oRAZLKw2Pm7VdWSf9uKZyS7ZyO7H-CeLAuVolY9umJoH0aLYTW_VQ64vyVoMFbHA1p7UNwMA3avUXgbeUV6Ptk1VoBtnOZEAQThoWMji5ZJMY_qkz53ySOH-7NOUx5ydG9k8aELSDaFFQMIhgYXmjHLUZdY_Q-qCISh_6_mnmcLWXezmv8l6mAXis4z_HPK2-omd78WPo3cLHozH6VCzmqu3P1gdK73j8TN6ZsNsBcsO4R9fbUGMpwz-3zVBDt0JrosaZ6_epn7TnKRfzztlG-vm9HpY_e32j1UGQMUmeYAAe6org02HJWxfyzRj4ecoWzFZTqedUreSSUPmHHOvmAS3MHaHa5cBXVM3PuCEs6dK_Cckk8k8BlQqfGc9ZKN36M6RBaAeJ_2qnaGR_GSnPcrvjEelR_c-sRefc9_r_sbNWhsXoLlR4SD_UfpjLwzTVwgygAmbQKNvlfAy71sK9Ykd6So68IwbwfBCxOf2p7Ms6dV6rk0CLPNFGWBIsh11YFd81ZlIxf50A5mOm9JtBqRDg9z3ZdTif9_8zesqEFgnUKB6DOsR_S4esfd_1EdSwpghUTlm3kyuTk_i7wiklGF2cn8shTvnQ0SSQRSw3dwhkzco5NjXyXE47k7ClJmdVi3)](https://editor.plantuml.com/uml/VLH1RjD05Dtx54DMHQh4fak4Ad83E41brTDYvDXWZnSLGaeS0Oi8ebQiM03b1Aw9gN4Rvmf_RiJxuwanJaEaIAEP-U-z__uR7oRAZLKw2Pm7VdWSf9uKZyS7ZyO7H-CeLAuVolY9umJoH0aLYTW_VQ64vyVoMFbHA1p7UNwMA3avUXgbeUV6Ptk1VoBtnOZEAQThoWMji5ZJMY_qkz53ySOH-7NOUx5ydG9k8aELSDaFFQMIhgYXmjHLUZdY_Q-qCISh_6_mnmcLWXezmv8l6mAXis4z_HPK2-omd78WPo3cLHozH6VCzmqu3P1gdK73j8TN6ZsNsBcsO4R9fbUGMpwz-3zVBDt0JrosaZ6_epn7TnKRfzztlG-vm9HpY_e32j1UGQMUmeYAAe6org02HJWxfyzRj4ecoWzFZTqedUreSSUPmHHOvmAS3MHaHa5cBXVM3PuCEs6dK_Cckk8k8BlQqfGc9ZKN36M6RBaAeJ_2qnaGR_GSnPcrvjEelR_c-sRefc9_r_sbNWhsXoLlR4SD_UfpjLwzTVwgygAmbQKNvlfAy71sK9Ykd6So68IwbwfBCxOf2p7Ms6dV6rk0CLPNFGWBIsh11YFd81ZlIxf50A5mOm9JtBqRDg9z3ZdTif9_8zesqEFgnUKB6DOsR_S4esfd_1EdSwpghUTlm3kyuTk_i7wiklGF2cn8shTvnQ0SSQRSw3dwhkzco5NjXyXE47k7ClJmdVi3)
 
-left to right direction 
-
-
-System_Boundary(life, "База данных") {
-    Container(requirements, "Требования", "Определение основных требований к базе данных")
-    Container(project, "Проектирование", "Создание проекта базы данных")
-    Container(realisation, "Реализация", "Создание рабочей версии целевой БД")
-    Container(testing, "Тестирование", "Тестирование БД на соответствие постановке задачи")
-    Container(use, "Введение в эксплуатацию", "Внедрение, эксплуатацияя и сопровождение БД")
-}
-Container(done, "Вывод из эксплуатации")
-
-Rel(requirements, project, "Сбор и анализ требований")
-Rel(project, realisation, "Выбор целевой системы управления базами данных")
-Rel(realisation, testing, "Конвертирование и загрузка данных")
-Rel(testing, requirements, "Валидация")
-Rel(testing, use, "Пробный запуск БД")
-Rel(life, done, "")
-
-```
-
-```plantuml
-skinparam titleFontSize 60
-skinparam titleFontStyle plain
-
-title
-
-    |=<#438dd5><color: White> Этап ЖЦ |=<#438dd5><color: White> Название вида работ |=<#438dd5><color: White> Получаемые артефакты |
-    |Требования |Постановка задачи на проектирование; \nопределение цели, задач\nи желательной функциональности БД |Техническое задание на разработку\nбазы данных;\nГлоссарий/словарь данных;\nОписание взаимодействия пользователя с БД.\n|
-    |Проектирование |Создание проекта базы данных; \nвыбор определенной СУБД.|Модель сценариев взаимодействия БД с её\nокружением;\nАрхитектурное описание;\nПМИ;\nПояснительная записка;\nЛогический дизайн БД;\nКонструкторская и проектная документация.\n|
-    |Реализация |Реализация базы данных с использованием\nвыбранной СУБД;\nЗагрузка данных для последующего тестирования.\n|Исходный код БД в среде СУБД. |
-    |Тестирование |Реализация ПМИ |Отчет о результатах тестирования;\nОбнаруженные дефекты,\nфакты несоответствия БД предъявленным\nтребованиям;\nОтчеты о производительности;\nЖурналы log'ов.\n|
-    |Введение в эксплуатацию |Загрузка данных; \nВнедрение БД в информационную систему; \nОбучение пользователей; \nПоследующее сопровождение БД\n|Акт передачи в эксплуатацию;\nДокументация по установке и настройке,\nинструкция по эксплуатации для\nадминистраторов.|
-end title
-
-```
+[![](https://img.plantuml.biz/plantuml/dsvg/XLR9RXD15BpxArhYm2K291OX4gAS-04EN7AnY0KMZXqbvW3omKjC10vn4g8GiSGi4ZSan_7WyJBZN-Z-8wfUzzXZCmwH7C_qKgzUlUhNNjiffhUBBpTpgPqNsVnMUZkzgOhPOYxpg90lFiw-pgXxjnAdYgzo6RMLIsVpgPICfb8AVwM7AzVktBw_iN5tTULf8LVOVg2UFCyMCwjA_pPLtTPZfK_rhwlMVSMgdkxWVw1zxIay-hghsygKCNQXGrEzQdjBXtfeQcOFYpqzCWr2j4qPqJspYy61gPg6Abcw-WTGFQ964KqJem0n5U4RoCm0uK6gJHv0zXN6CJB6vX3R0OcDvIc8zfRLUXxlOu7luZF4noPatiYhlnI3n6A0_f69DgaYXtq9tbTcrzJmEC0-7mE874qAH-mxqYTC1GdM9OKzF5L0EcJkBaQaPX0fsPlg2UmQ65p8Q4EvvO5fcFeonZ-056DLg2DG-ZVnEBJPGjZzVpQSwp5OLE8b90jVZx29OlI5UKVKnjfG4kevH9jzKvcAP7PZFHyLgxLORyn-ntildcgyFAXMOdeiKmSceGvbbL0nMmE0_nGo9Vt5vG3Ae2Z539mmdkxy9rTMYdbvvaZyCO1-DQcxSDOZodU8mJhMLortcBaiD3pX5rUMgrjWT6OVGjF4NE2sMfEq6PQCx4OucMi_0-aovXIVENRnnPLz7GXJBln4np438KebePF58R0_gx8BrvNCQf00UL5yMjSqOvNyXfas3m43sja5eubb4msPpfnt8XMZeeh5vsl8j3vY_59Iwjd37GV7oz0PKumEEw061-OjdYvrgAILLEOzQFFJPvYfI-a1ngWyXbrRUTW3iyvVKqzDcr4IhdWxKHcfF2RFKHqMigf8Zl0z90PPH7f-wWivs-DwOIqyiM9WssPNMgOrOMDfFH_hdrX4vuJIFZeCFc_pw2IPTwQ9yU446DMXdURRhlN-91V622Dt-N8ZKDIujLt_uxPJTqZO6XigLtXsdT0nmnsJf9p7g2Kfynwvq4AuBfnE5FO0gw-oXxICO-QFtCfJG5TWl0JG2QS4zczFUdP01w7wTAsaC38rGOBuSbjDS1BR8Vk8B6ybUD9JKecngso88dPdUD6NXomSqJrdG7UHBTQ1kfuadsHXgK1WzfBqbBiQRSFWgUFe4c-tcIuI1qcCJXmvXTZAwsj40AiTpxHjGrBYKYgJtx0_J59hUCHlcRy0)](https://editor.plantuml.com/uml/XLR9RXD15BpxArhYm2K291OX4gAS-04EN7AnY0KMZXqbvW3omKjC10vn4g8GiSGi4ZSan_7WyJBZN-Z-8wfUzzXZCmwH7C_qKgzUlUhNNjiffhUBBpTpgPqNsVnMUZkzgOhPOYxpg90lFiw-pgXxjnAdYgzo6RMLIsVpgPICfb8AVwM7AzVktBw_iN5tTULf8LVOVg2UFCyMCwjA_pPLtTPZfK_rhwlMVSMgdkxWVw1zxIay-hghsygKCNQXGrEzQdjBXtfeQcOFYpqzCWr2j4qPqJspYy61gPg6Abcw-WTGFQ964KqJem0n5U4RoCm0uK6gJHv0zXN6CJB6vX3R0OcDvIc8zfRLUXxlOu7luZF4noPatiYhlnI3n6A0_f69DgaYXtq9tbTcrzJmEC0-7mE874qAH-mxqYTC1GdM9OKzF5L0EcJkBaQaPX0fsPlg2UmQ65p8Q4EvvO5fcFeonZ-056DLg2DG-ZVnEBJPGjZzVpQSwp5OLE8b90jVZx29OlI5UKVKnjfG4kevH9jzKvcAP7PZFHyLgxLORyn-ntildcgyFAXMOdeiKmSceGvbbL0nMmE0_nGo9Vt5vG3Ae2Z539mmdkxy9rTMYdbvvaZyCO1-DQcxSDOZodU8mJhMLortcBaiD3pX5rUMgrjWT6OVGjF4NE2sMfEq6PQCx4OucMi_0-aovXIVENRnnPLz7GXJBln4np438KebePF58R0_gx8BrvNCQf00UL5yMjSqOvNyXfas3m43sja5eubb4msPpfnt8XMZeeh5vsl8j3vY_59Iwjd37GV7oz0PKumEEw061-OjdYvrgAILLEOzQFFJPvYfI-a1ngWyXbrRUTW3iyvVKqzDcr4IhdWxKHcfF2RFKHqMigf8Zl0z90PPH7f-wWivs-DwOIqyiM9WssPNMgOrOMDfFH_hdrX4vuJIFZeCFc_pw2IPTwQ9yU446DMXdURRhlN-91V622Dt-N8ZKDIujLt_uxPJTqZO6XigLtXsdT0nmnsJf9p7g2Kfynwvq4AuBfnE5FO0gw-oXxICO-QFtCfJG5TWl0JG2QS4zczFUdP01w7wTAsaC38rGOBuSbjDS1BR8Vk8B6ybUD9JKecngso88dPdUD6NXomSqJrdG7UHBTQ1kfuadsHXgK1WzfBqbBiQRSFWgUFe4c-tcIuI1qcCJXmvXTZAwsj40AiTpxHjGrBYKYgJtx0_J59hUCHlcRy0)
 
 ### Разрабатываемый програмный модуль "Веб-интерфейс"
 
-```plantuml
-!include <C4/C4_Container>
-skinparam titleFontSize 60
+[![](https://img.plantuml.biz/plantuml/dsvg/bLLTRn9157tVNp7or2Or-j3uP4oLnAHlniPdie4fZYu3xWuFrPX0yUE1A0dlLkkxoPQ2B9IFlp3pZpntTg1yB4qaMRBScNlkkUVS6OuYvOUgNWcyUq8MWtg9iyVvmmVvmqA-AfKl90-VUD5R8Mj-w5UO4YhWpx5o8jvpzkYXvmNyL35LPQ4elrQi949ULA8gcUUTd4MALmhFgdLPyiEplK2SyWEMqrqzq5VtTQAdvbmFJCDyGc1achbzzi7p63xBqdiXVrS7P8LB5L7kRzEWR3tJFHthgKvCX-LeuKBFxL8VpmqUBEa1qpFJn2ljdfgs-SpC-IQ07Z4zPlYLJSgqSliRd6fXzGsQfAe_WJR3nZ6I4lk-G1rOLfU83C4fNl2PhoJ4kwkcQrFJidmJPhwujdh87Z5iI40DANfYsbi4G-u78lB91YBn2zjYP2UW4WC9cbboFn2VaqAfS1QmPwMROb-78HpheVs6NbWSwtYhbf2AbyDbhIvo2QkniC1LYWdTzZuY66PRjY7JqXFQ37oeHss39POd-Dbt7X0lSjeqxrA20bly_6AHrvGlYxoWUAI4BDinWjZD7Pwbdf9OFJTFphlC9B2wqyMvzMztLsJk_tTLZzn9sg3OO-ORPgi9NsyWR4nJPXt_RblxaxdMeHw81ahDNMyp_NSDTsU7eFRHkoLMgigKcMbRb3uvFTp1IYV8zbxoOEEOhnomIpjw3U9dzNPpd7cE0KPOo-ojOx0rpHldqG6ivQtFzzCNnmVCMdbj9tTeKQnLiPsChpGZ2CxqjPwbalP9CCYPce-mAxE6d3scgwEOhFZnIWhqTtmBGFgarosp1cMCgQkQLMZpakqwcVlBws9thfl4bEaLtR9qeP92SznUaCBbffU_6m_4ZhWiuL_d7m00)](https://editor.plantuml.com/uml/bLLTRn9157tVNp7or2Or-j3uP4oLnAHlniPdie4fZYu3xWuFrPX0yUE1A0dlLkkxoPQ2B9IFlp3pZpntTg1yB4qaMRBScNlkkUVS6OuYvOUgNWcyUq8MWtg9iyVvmmVvmqA-AfKl90-VUD5R8Mj-w5UO4YhWpx5o8jvpzkYXvmNyL35LPQ4elrQi949ULA8gcUUTd4MALmhFgdLPyiEplK2SyWEMqrqzq5VtTQAdvbmFJCDyGc1achbzzi7p63xBqdiXVrS7P8LB5L7kRzEWR3tJFHthgKvCX-LeuKBFxL8VpmqUBEa1qpFJn2ljdfgs-SpC-IQ07Z4zPlYLJSgqSliRd6fXzGsQfAe_WJR3nZ6I4lk-G1rOLfU83C4fNl2PhoJ4kwkcQrFJidmJPhwujdh87Z5iI40DANfYsbi4G-u78lB91YBn2zjYP2UW4WC9cbboFn2VaqAfS1QmPwMROb-78HpheVs6NbWSwtYhbf2AbyDbhIvo2QkniC1LYWdTzZuY66PRjY7JqXFQ37oeHss39POd-Dbt7X0lSjeqxrA20bly_6AHrvGlYxoWUAI4BDinWjZD7Pwbdf9OFJTFphlC9B2wqyMvzMztLsJk_tTLZzn9sg3OO-ORPgi9NsyWR4nJPXt_RblxaxdMeHw81ahDNMyp_NSDTsU7eFRHkoLMgigKcMbRb3uvFTp1IYV8zbxoOEEOhnomIpjw3U9dzNPpd7cE0KPOo-ojOx0rpHldqG6ivQtFzzCNnmVCMdbj9tTeKQnLiPsChpGZ2CxqjPwbalP9CCYPce-mAxE6d3scgwEOhFZnIWhqTtmBGFgarosp1cMCgQkQLMZpakqwcVlBws9thfl4bEaLtR9qeP92SznUaCBbffU_6m_4ZhWiuL_d7m00)
 
-left to right direction 
+[![](https://img.plantuml.biz/plantuml/dsvg/fLRBRjD05DtdAqPYmOQNn4E85iIA7s31ffkAHX2HfgWD2n2BE0ygI26ebKg5-WJ43ibDO-8yxFp2p1znpfrnxRI9Do0LEUEPE-UUS-wzVhnHNLwllbaj5pPUbIglbzUNLrMrL2qNdwnLgazBxuhgtgsPhwfloqNrkhnSgXGAibfG-FV-uUALExVlhwpSVRJuVAsyjlv0FNjPgXOVAVt7rBMl9qhlwjzv-mwmgw-x-3_IeGuK7aFTqxuoDQoTwjZKyuuVwLYFJCDiOdEWnwRD4BwfuVR0DB4uD7NJLkyjNFq3KGD6JMuq7QmYYF44RoHlXhWUe7pYGEHGOHqh4noESHmXSR2M1j71mb957yg608S2FSAVpSTyS3y7rp8nyOoeV-ML04UmmLB5D4q3vuOu5685joAvBQ8IV27P0VphU1j9XZNaYD36q_wDfGhomrfByjh4auTCOXBYxasnxk1UnlJ85HO7D_4uiXaXw9PosoFJDYsN789wMPaOD1JaFOi1YBfa5Did8iiMzjYGTMOAhes7btDpYFMOMJYjZkRJZRSd-DrFavfMnyyZIibY4_dNWDu_vpfo6dXCL133JlE5THUUYK_7t2kQZd5PNJW9mJuMoDe4DDOTr45EI0B3rK3RO231ZhILx8KNiA7l48VYstsznt1VSQA5c-esVzH3JT91o7XQEEwctJjOYjm9Qp4VyeYcTh_Km72ALjFWwNqd-8WkcIATRt_DDh3K9L9hfQpka3Z8a5eLt2ZXZIW6EhfEUR0EGZEsEBv8XPJm0LOdOccXrPan45cPsMK6cUvyam0WQzvqT1_OGOPfNL9ysfMcmwo-qyIaa7PFhedrgVdaMA8iPpfMKfezIzetH3WJqVl2ksr6OlkqZ7b8QgH7fEWTjlQmp13R0f_dXed3B_S7yBGd8Z08DHau63CDbbUfX7tULBUH53cldHkPUlZMoIog5DCiS-Ur4cISTj0kOwbiVN9XGG7eJr3kIowkUtTTuR4FuQQE6muudXP-NQ4EJoGJqOrD8OGG3N7cULkmtcsA9qVMkqVIjYCxepYzo0tcpBGNJY0uc-j4Hj3ylJSoNBA1UpCRtYpVsmw0buU8IAiWfTYAsGVBA3rd9DfN9BmKsq8zn4oCfFKtP2ebQOlPcgxyszWOginKfUvYoTXM6nQpGo2d1MEVqu4mfn3nuZ4q5VDScDLwB62JP0aXJieo57AbyMQwcXkSFBRhsY9RKbkLrrvSPUXCPzaMnBsq7QFnVaQgj16-CHoHPFwBs-rA1xgcNoisYQJAyyPGLxgpZ8O8sBxClKqiVYBXQzdc8AdPAGFL_-FRmLb0lgFI-JPhXlD4CaCy-TaZTFCHJu7jJnCdPWmdPSdC_tBvIa_nqi0DHlVbDLy3mZWMJ9JU-RKlhJcGFYYgxsMwpZ0fcmdvcXbMXsA8OcN5VlmM7kCHtyl_0000)](https://editor.plantuml.com/uml/fLRBRjD05DtdAqPYmOQNn4E85iIA7s31ffkAHX2HfgWD2n2BE0ygI26ebKg5-WJ43ibDO-8yxFp2p1znpfrnxRI9Do0LEUEPE-UUS-wzVhnHNLwllbaj5pPUbIglbzUNLrMrL2qNdwnLgazBxuhgtgsPhwfloqNrkhnSgXGAibfG-FV-uUALExVlhwpSVRJuVAsyjlv0FNjPgXOVAVt7rBMl9qhlwjzv-mwmgw-x-3_IeGuK7aFTqxuoDQoTwjZKyuuVwLYFJCDiOdEWnwRD4BwfuVR0DB4uD7NJLkyjNFq3KGD6JMuq7QmYYF44RoHlXhWUe7pYGEHGOHqh4noESHmXSR2M1j71mb957yg608S2FSAVpSTyS3y7rp8nyOoeV-ML04UmmLB5D4q3vuOu5685joAvBQ8IV27P0VphU1j9XZNaYD36q_wDfGhomrfByjh4auTCOXBYxasnxk1UnlJ85HO7D_4uiXaXw9PosoFJDYsN789wMPaOD1JaFOi1YBfa5Did8iiMzjYGTMOAhes7btDpYFMOMJYjZkRJZRSd-DrFavfMnyyZIibY4_dNWDu_vpfo6dXCL133JlE5THUUYK_7t2kQZd5PNJW9mJuMoDe4DDOTr45EI0B3rK3RO231ZhILx8KNiA7l48VYstsznt1VSQA5c-esVzH3JT91o7XQEEwctJjOYjm9Qp4VyeYcTh_Km72ALjFWwNqd-8WkcIATRt_DDh3K9L9hfQpka3Z8a5eLt2ZXZIW6EhfEUR0EGZEsEBv8XPJm0LOdOccXrPan45cPsMK6cUvyam0WQzvqT1_OGOPfNL9ysfMcmwo-qyIaa7PFhedrgVdaMA8iPpfMKfezIzetH3WJqVl2ksr6OlkqZ7b8QgH7fEWTjlQmp13R0f_dXed3B_S7yBGd8Z08DHau63CDbbUfX7tULBUH53cldHkPUlZMoIog5DCiS-Ur4cISTj0kOwbiVN9XGG7eJr3kIowkUtTTuR4FuQQE6muudXP-NQ4EJoGJqOrD8OGG3N7cULkmtcsA9qVMkqVIjYCxepYzo0tcpBGNJY0uc-j4Hj3ylJSoNBA1UpCRtYpVsmw0buU8IAiWfTYAsGVBA3rd9DfN9BmKsq8zn4oCfFKtP2ebQOlPcgxyszWOginKfUvYoTXM6nQpGo2d1MEVqu4mfn3nuZ4q5VDScDLwB62JP0aXJieo57AbyMQwcXkSFBRhsY9RKbkLrrvSPUXCPzaMnBsq7QFnVaQgj16-CHoHPFwBs-rA1xgcNoisYQJAyyPGLxgpZ8O8sBxClKqiVYBXQzdc8AdPAGFL_-FRmLb0lgFI-JPhXlD4CaCy-TaZTFCHJu7jJnCdPWmdPSdC_tBvIa_nqi0DHlVbDLy3mZWMJ9JU-RKlhJcGFYYgxsMwpZ0fcmdvcXbMXsA8OcN5VlmM7kCHtyl_0000)
 
-System_Boundary(life, "Веб-интерфейс") {
-
-    Container(requirements, "Требования", "Определение основных требований к веб-интерфейсу")
-    Container(project, "Проектирование", "Создание проекта веб-интерфейса внутри целевой системы")
-    Container(realisation, "Реализация", "Непосредственная разработка")
-    Container(integration, "Внедрение", "Настройка инструментов взаимодействия с целевой системой")
-    Container(acceptance_testing, "Тестирование", "Произведение Тестирования веб-интерфейса при взаимодействии с целевой системой")
-    Container(use, "Введение в эксплуатацию", "Эксплуатацияя и сопровождение веб-интерфейса")
-}
-Container(done, "Вывод из эксплуатации")
-
-Rel(requirements, project, "Сбор и анализ требований")
-Rel(project, realisation, "Разработка проекта")
-Rel(realisation, integration, "API, загрузка статического содержимого")
-Rel(integration, acceptance_testing, "Произвидение Unit, Integration и System тестирования")
-Rel(acceptance_testing, requirements, "Валидация")
-Rel(acceptance_testing, use, "Пробный запуск")
-Rel(life, done, "")
-
-
-```
-```plantuml
-
-skinparam titleFontSize 60
-skinparam titleFontStyle plain
-
-title
-    |=<#438dd5><color: White> Этап ЖЦ |=<#438dd5><color: White> Название вида работ |=<#438dd5><color: White> Получаемые артефакты |
-    |Требования |Постановка задачи на проектирование;\nОпределение целей, задач, и желаемой\nфункциональности веб-интерфейса.\n|Техническое задание;\nГлоссарий/словарь данных;\nОписание взаимодействия\nпользователя с\nвеб-интерфейсом.\n|
-    |Проектирование |Создание проекта веб-интерфейса информационной\nсистемы;\nОпределение программы и методики испытаний;\nОпределение инструментов реализации |ПМИ;\nАрхитектурное описание;\nПояснительная записка к проекту;\nМодель проекта;\nФункциональные схемы;\nГрафический дизайн-макет.\n|
-    |Реализация |Непосредственная реализация веб-интерфейса\nна языках программирования;\nКомпиляция объектного кода;\nЗагрузка статического содержимого;\nВерстка интерфейса.\n |Исходный код реализации\nвеб-интерфейса;\n |
-    |Внедрение |Настройка инструментов взаимодействия с целевой системой; \nУпаковка в исполняемый формат ОС;\n |Конфигурационные файлы;\nПлан развертывания;\nСкрипты развертывания.\n |
-    |Тестирование |Реализация ПМИ |Отчет о результатах тестирования;\nОбнаруженные дефекты\nи факты несоответствия\nвеб-интерфейса сформулированным \nтребованиям;\nОтчеты о производительности;\nЖурналы log'ов.\n|
-    |Введение в эксплуатацию |Ввод разработанного веб-интерфейса в опытную эксплуатацию; \nСбор статистики о функциональности веб-интерфейса;\nОбучение пользователей;\nПоследующее сопровождение веб-интерфейса. |Акт передачи в эксплуатацию;\nРелизные заметки;\nИнструкция по эксплуатации.\n|
-end title
-
-```
 
 ### Компонент "Набор кластерных ресурсов"
-```plantuml
-!include <C4/C4_Container>
-
-left to right direction 
-
-System_Boundary(life, "Кластеры виртуализации") {
-
-System_Boundary(t, "Анализ требований") {
- Container(requirements, "Определение требований","необходимой производительности, масштабируемости, уровня безопасности")
-}
-
- 
-    System_Boundary(c1, "Проектирование") {
-    Container(arch, "Архитекутура","Определение архитектуры класстеров")
-    Container(net, "Сеть","Построение модели сетевого взаимодействия")
-}
-
-System_Boundary(c2, "Реализация") {
-    Container(vm, "Виртуальные машины","Выделение ресурсов")
-    Container(infra, "Инфрастраструктура","Настройка инфраструктуры, сетевого окружения")
-}
-
-System_Boundary(c3, "Внедрение") {
-    Container(test, "Тестирование")
-    Container(intg, "API", "Интеграция с внешними системаи")
-}
-
-
-System_Boundary(c4, "Сопровождение и эксплуатация") {
-  Container(monit, "Мониторинг")
-  Container(log, "Логирование")
-}
-
-}
-Container(done, "Вывод из эксплуатации")
-
-Rel(t, c1, "")
-
-Rel(c1, c2, "Построение кластера")
-
-Rel(c2, c3, "Выбор подходящей конфигурации")
-
-Rel(c3, c4, "Вирутализация")
-
-Rel(c4, t, "")
-
-
-Rel(life, done, "")
-
-
-
-
-```
+[![](https://img.plantuml.biz/plantuml/dsvg/TLNBRjD05DtxAuQiMYaI0h94g90LEmGVK4M9qrfoRE5Ca2fKgKbQL9IYeguGK0fyWVDmSLxkBypy4UVUcJGlDrBgUEO-pZdtp7IlAIkHR3Lyvv4NLFrMpHNFowN7vT9-EGnanGlSw8NZ-6vT2XcAo3iubABcHMvLUc4W7EVTKLEwZVrNOIkeLQAZ7T-hkqLHKD_LLCMwhJigqIUw9zH0fVZHqLqLOojL_x3z2S-qi2i-RjUHLEIhcY-Y1L9FLABwAaEf61kf6dEgk0Uw4xdlMy3MS0FPfFnVwewJHlXEyQMa9BzIiO0V2PRw-Wn_HrYSuJaMN29Zm0EpGPpKL5yW8ME6QL4WcDYUuor6PQBQHTHi6Q6xN6UWvlfI82H1mKpTKTgoK67NENOSuGXyDXMfFY5ADrmbKHCAjnKDXyIeWSzIa4fKFMGXWUVC8fy0IOVHnCGwNoF0MitWU9hYn8xL3fRQ0_Dwqy3buVr1G4TVK8yRmyz2jnrch2OrJGKqIBWLIJnK6Ta51h53eAWnjoGJNHgHjkHvIar_8tJDNnI-9Sk71iLUhJgIngbx1bUipr40huJz2giR_e5SG4EAj7C5y89wLA4Etr3ab8IsxEqJ7IUh8xY-3u3X874ikFrfNeRk5NFKoh1DGRS6v8CQFJEyoUaZdlf3nf5kauVubwdcM6sBiZn0_CithmiBuWHmo1Hu341DKqLhg3ldoVBSK-CbadtX_stS9MEep1v6udtBKx5UGgKlaA2DypIbUT8nN9l-4caZ33oczXD5vkpm34KXk1eohMMe7n8dzODLtbO0I8-TPNGj3FZc8yFmJI7ClPKBZAawRrsVBZe-sOjtUZ5UpZqrazLx5VPPP273JXVj-qG9DnUXCDUPljIVwHHHWOoyXMf3uy1rE5J4o6sEHvTlj8q3PKCH9YroNZ1tlzM1LlVSe8P_BVy1)](https://editor.plantuml.com/uml/TLNBRjD05DtxAuQiMYaI0h94g90LEmGVK4M9qrfoRE5Ca2fKgKbQL9IYeguGK0fyWVDmSLxkBypy4UVUcJGlDrBgUEO-pZdtp7IlAIkHR3Lyvv4NLFrMpHNFowN7vT9-EGnanGlSw8NZ-6vT2XcAo3iubABcHMvLUc4W7EVTKLEwZVrNOIkeLQAZ7T-hkqLHKD_LLCMwhJigqIUw9zH0fVZHqLqLOojL_x3z2S-qi2i-RjUHLEIhcY-Y1L9FLABwAaEf61kf6dEgk0Uw4xdlMy3MS0FPfFnVwewJHlXEyQMa9BzIiO0V2PRw-Wn_HrYSuJaMN29Zm0EpGPpKL5yW8ME6QL4WcDYUuor6PQBQHTHi6Q6xN6UWvlfI82H1mKpTKTgoK67NENOSuGXyDXMfFY5ADrmbKHCAjnKDXyIeWSzIa4fKFMGXWUVC8fy0IOVHnCGwNoF0MitWU9hYn8xL3fRQ0_Dwqy3buVr1G4TVK8yRmyz2jnrch2OrJGKqIBWLIJnK6Ta51h53eAWnjoGJNHgHjkHvIar_8tJDNnI-9Sk71iLUhJgIngbx1bUipr40huJz2giR_e5SG4EAj7C5y89wLA4Etr3ab8IsxEqJ7IUh8xY-3u3X874ikFrfNeRk5NFKoh1DGRS6v8CQFJEyoUaZdlf3nf5kauVubwdcM6sBiZn0_CithmiBuWHmo1Hu341DKqLhg3ldoVBSK-CbadtX_stS9MEep1v6udtBKx5UGgKlaA2DypIbUT8nN9l-4caZ33oczXD5vkpm34KXk1eohMMe7n8dzODLtbO0I8-TPNGj3FZc8yFmJI7ClPKBZAawRrsVBZe-sOjtUZ5UpZqrazLx5VPPP273JXVj-qG9DnUXCDUPljIVwHHHWOoyXMf3uy1rE5J4o6sEHvTlj8q3PKCH9YroNZ1tlzM1LlVSe8P_BVy1)
 
 ### Компонент "Подсистема мониторинга"
 
-```plantuml
-!include <C4/C4_Container>
+[![](https://img.plantuml.biz/plantuml/dsvg/bLLDRzf04BtxLsmv4GdHIuvL5PL3rLlLgcTamGPSmJeroo6gAWKGHHLga7BgfQteFP93S6DCWBym-uywCpRVE2f88BEUZ_VcpSoUDRJjwMQzPZrpLAdMB4lned3wl71QBBXAsuwItalBgibpBRGhFATIrQBiUBAa7LS9otf_sT2oNdpbDbNPzYwpDUTSvaG6ViCSngO5eMcPDWJm2Bx0dpdCyAWDStC58JxVWvyv4PyjI-1dbJ7hoKzDJ5ANIZSesXyq3-0EtKVWSuX1Xiv_mOBVZF4xnI--WK1Wz1O-al7Cz4rNcFQkFqm4H08MUoY3L9Gx42yyzoDMWRcYsHoz8tG9-NcP9M2KGpnvG8p-4jzYmy4_WCBqKr0820KQ10AjvspjOwwf6PXhymsDku8vTvXmACpNf2uZ33OHsods63bAoufdax24-WPJOcMvScikFy6d44nW0X53menyP3fKGFpNfX8Gb0V45p8LKcZ2oKUatYw15VmZQc5QJn6aWpsATgaaBxIjIhAePKCxgiBT1G5x7T8krZP49gEaps8DASc-4n8xIiq5ovHUADBmU9RDXem5t8QCafZls7CjX3X5hNogFiOEpJLJlJtuRa2SGjOhwLj2yNSpxlypHgZM5skDjEog6AhfSzWnTTD32am8oVsThEsiXur97DACcoiU4nB4nx9nm0CB8CS5QUTDBoyIRdkBX1Yr-62CI9WPDMc4zezCUxRPxpzWA332b2gMHf_Whm3lJ5pADiFYTv9HYPTQnCsViW2uCRkSkqSjoc3lOIuISQ8ZDqxsjMTVL6rbvyHRpwrBNPNDHZwVFqd8R74uF5zy5s1Y6lFUTd4fLuyF65Uy8tbfvvPhCfwzSAFXFYW7Y_TcdPXg55z4gNEPe3q4SFUokKdQPhoSW2Tyar6BjyGT8QURXQPvGQ91bFZ6rsBIxdXs9bMPBjr_)](https://editor.plantuml.com/uml/bLLDRzf04BtxLsmv4GdHIuvL5PL3rLlLgcTamGPSmJeroo6gAWKGHHLga7BgfQteFP93S6DCWBym-uywCpRVE2f88BEUZ_VcpSoUDRJjwMQzPZrpLAdMB4lned3wl71QBBXAsuwItalBgibpBRGhFATIrQBiUBAa7LS9otf_sT2oNdpbDbNPzYwpDUTSvaG6ViCSngO5eMcPDWJm2Bx0dpdCyAWDStC58JxVWvyv4PyjI-1dbJ7hoKzDJ5ANIZSesXyq3-0EtKVWSuX1Xiv_mOBVZF4xnI--WK1Wz1O-al7Cz4rNcFQkFqm4H08MUoY3L9Gx42yyzoDMWRcYsHoz8tG9-NcP9M2KGpnvG8p-4jzYmy4_WCBqKr0820KQ10AjvspjOwwf6PXhymsDku8vTvXmACpNf2uZ33OHsods63bAoufdax24-WPJOcMvScikFy6d44nW0X53menyP3fKGFpNfX8Gb0V45p8LKcZ2oKUatYw15VmZQc5QJn6aWpsATgaaBxIjIhAePKCxgiBT1G5x7T8krZP49gEaps8DASc-4n8xIiq5ovHUADBmU9RDXem5t8QCafZls7CjX3X5hNogFiOEpJLJlJtuRa2SGjOhwLj2yNSpxlypHgZM5skDjEog6AhfSzWnTTD32am8oVsThEsiXur97DACcoiU4nB4nx9nm0CB8CS5QUTDBoyIRdkBX1Yr-62CI9WPDMc4zezCUxRPxpzWA332b2gMHf_Whm3lJ5pADiFYTv9HYPTQnCsViW2uCRkSkqSjoc3lOIuISQ8ZDqxsjMTVL6rbvyHRpwrBNPNDHZwVFqd8R74uF5zy5s1Y6lFUTd4fLuyF65Uy8tbfvvPhCfwzSAFXFYW7Y_TcdPXg55z4gNEPe3q4SFUokKdQPhoSW2Tyar6BjyGT8QURXQPvGQ91bFZ6rsBIxdXs9bMPBjr_)
 
-left to right direction 
-
-System_Boundary(life, "Подсистема мониторинга") {
-
-    Container(requirements, "Требования", "Определение основных требований к подсистеме мониторинга")
-    Container(project, "Проектирование", "Создание проекта подсистемы мониторинга и ее составляющих внутри целевой системы")
-    Container(integration, "Внедрение", "Настройка инструментов взаимодействия составлющих подсистемы мониторинга с целевой системой")
-    Container(acceptance_testing, "Тестирование", "Произведение тестирования подсистемы мониторинга при взаимодействии с целевой системой")
-    Container(use, "Введение в эксплуатацию", "Эксплуатацияя и сопровождение подсистемы мониторинга")
-
-}
-Container(done, "Вывод из эксплуатации")
-
-Rel(requirements, project, "Сбор и анализ требований, в т.ч. определение исследуемых компонентов ИС для мониторинга")
-Rel(project, integration, "Определение и установка составляющих технического стека подсистемы мониторинга (Graphana, Prometheus...)")
-Rel(integration, acceptance_testing, "Подключение источника данных, произвидение Unit, Integration и System тестирования")
-Rel(acceptance_testing, requirements, "Валидация")
-Rel(acceptance_testing, use, "Пробный запуск")
-Rel(life, done, "")
-
-```
-
-```plantuml
-@startuml
-skinparam titleFontSize 60
-skinparam titleFontStyle plain
-
-title
-
-    |=<#438dd5><color: White> Этап ЖЦ |=<#438dd5><color: White> Название вида работ |=<#438dd5><color: White> Получаемые артефакты |
-    |Требования |Постановка задачи на проектирование;\nОпределение целей, задач, и желаемой функциональности \nподсистемы мониторинга;\nОпределение исследуемых компоненотов ИС\nдля мониторинга.|Техническое задание;\nГлоссарий/словарь данных;\nОписание взаимодействия\nадминистратора с подсистемой \nмониторинга.\n|
-    |Проектирование |Создание проекта подсистемы мониторинга изолированно и \nвнутри целевой системы;\nОпределение программы и методики испытаний;\nОпределение составляющих технического стека\nподсистемы мониторинга.|Архитектурное описание подсистемы\nмониторнига;\nПМИ;\nМодель проекта внутри\nинформационной системы;\nПояснительная записка к проекту.\n|
-    |Внедрение |Установка инструментов для технического мониторинга\nисследуемых компонентов разрабатываемой системы;\nНастройка инструментов взаимодействия составляющих\nтехнического стека и внешней системы;\n |Конфигурационные файлы;\nПлан развертывания;\nСкрипты развертывания.\n|
-    |Тестирование |Реализация ПМИ |Отчет о результатах тестирования;\nОбнаруженные дефекты\nи факты несоответствия\nвеб-интерфейса сформулированным \nтребованиям;\nОтчеты о производительности.\n|
-    |Введение в эксплуатацию |Ввод в опытную эксплуатацию подсистемы мониторинга\nпри взаимодействии с внешней информационной системой;\nОбучение администраторов;\nСбор рекомендаций и статисткики о функционировании\nподсистемы мониторинга.\n|Акт передачи в эксплуатацию;\nРелизные заметки;\nИнструкция по эксплуатации;\nТребования к модернизации\nподсистемы мониторинга. |
-end title
-@enduml
-
-```
 [![](https://img.plantuml.biz/plantuml/dsvg/bLPBJnDH5DxtLzp4hQ_4HumYOUKVSE66JIDDR2o5G5reMBHJAXeGY2Q66EIXYJkJSUZOQUcqV-7UV-JtdNkddROp5KWWmxtdyPrpldFENTgi5JTgRrOhXStNvUfwSQEugchbMgNqRArQUrv-Lr8FxsPUrTvMIcgzKYnN2mKvBHGKVhQUBjouV-_Hoig3nOMNQvMrZSVgnQjohRIez6_ZQLyFbVwgVysJ-mwfZWxmDzQH3XK-8ztMlZ9rdFtH0-FDKp_L0trfccO7mg7kcrsQy4qTtaEpZSEUySoksh9mzGzO3MaryMWES0eZfY5uOxdfmJr0-SG1ov72EKw6K1v07IQXM1yRqU6JvQe-4O4GIg6-nA-Dnxnt_tPlfcpY6rR_ofK0Xx6kCjkc2RKUT28Sm2bYsoCeWHSfU1dYecqQ0C0Z2Lc9EeFn85c7Rgmlj9-FIPGRSj26Hp5YMWfn3s1gACP2SUinIAMFz3cCjO7c8CVPRUGM6M_9pGw-6c8j7CKypjCNE1u805_qktS4YsGJXTjJJZmcA1S44QSfGgEH865aNSb5m6f2dExwWajoH1uvh21LGyrcK78FnUp0bgi9UKxpwu_RS_pV6KSwIHS_msrkuL0VM0Al9xoW7CfI841gcX9ODAPNO1aqONyE0oou2scoliKI4Kue9Mz3gCS3fds8EdWkhEuSeZT6NHIGA6RVV8H-IqahJXFZ0j4ueEYsQ_4QL3i4JrfoBkb5DkhIkWXiC4sM3CCpjQQewvXJVQoF-77io7L9HaxLCbK1I08NHWtjz46rf7VZd89ms1pWE7RuROVxx2oosgAN2TIRy6kQAIf-bWvjInaI0lwSdM549Ys0BkzJD6besygvbSbEF4Ezqk1mNeHS7JV7VSvXeV9esisa1hl0TIpk_nF1d1cGIyNbwXMuA8qGC13pGSB9G8fiVsEmA3k88_HB5LwMa2oVBhoxedFEnoubC1zoHRc4o1gYr3dgp6mFPMVbowQ8mA7Ro9n7Pq3hSuOmKGH7XWcxSNa2Wqo0fnWxMTH1Wa559ar-NT_EsBP8Jr3HMCPrKxPO4ZLBWSWjOTbdaKfjOKagQYEBXN5v4uCxu6g-9INt9EXjMrUPsqc74URaN8JZlc9fPtUxxWlO95X262HD5KbkPTQb-j1jsebM2zoiIxQFCfyG40OZNnukNSpllfE6JKfn5CdevApOprUwnkZZd9Indqz_PhmnJU0hZoWUkFhAeseKTFvIHRejT_bMgriosNb0vRPpHmosoNnX5BzwoPOPpBvy9laSNMz1e7Zwa9nZRaEtgznBBhzwZE9CLXgfuVZSaVqOMhIKE4eDf5xILaE6a6dMAcKzEpdUNVNS1keaAjUB5e_RKdN5FjOBI_Za-_uV)](https://editor.plantuml.com/uml/bLPBJnDH5DxtLzp4hQ_4HumYOUKVSE66JIDDR2o5G5reMBHJAXeGY2Q66EIXYJkJSUZOQUcqV-7UV-JtdNkddROp5KWWmxtdyPrpldFENTgi5JTgRrOhXStNvUfwSQEugchbMgNqRArQUrv-Lr8FxsPUrTvMIcgzKYnN2mKvBHGKVhQUBjouV-_Hoig3nOMNQvMrZSVgnQjohRIez6_ZQLyFbVwgVysJ-mwfZWxmDzQH3XK-8ztMlZ9rdFtH0-FDKp_L0trfccO7mg7kcrsQy4qTtaEpZSEUySoksh9mzGzO3MaryMWES0eZfY5uOxdfmJr0-SG1ov72EKw6K1v07IQXM1yRqU6JvQe-4O4GIg6-nA-Dnxnt_tPlfcpY6rR_ofK0Xx6kCjkc2RKUT28Sm2bYsoCeWHSfU1dYecqQ0C0Z2Lc9EeFn85c7Rgmlj9-FIPGRSj26Hp5YMWfn3s1gACP2SUinIAMFz3cCjO7c8CVPRUGM6M_9pGw-6c8j7CKypjCNE1u805_qktS4YsGJXTjJJZmcA1S44QSfGgEH865aNSb5m6f2dExwWajoH1uvh21LGyrcK78FnUp0bgi9UKxpwu_RS_pV6KSwIHS_msrkuL0VM0Al9xoW7CfI841gcX9ODAPNO1aqONyE0oou2scoliKI4Kue9Mz3gCS3fds8EdWkhEuSeZT6NHIGA6RVV8H-IqahJXFZ0j4ueEYsQ_4QL3i4JrfoBkb5DkhIkWXiC4sM3CCpjQQewvXJVQoF-77io7L9HaxLCbK1I08NHWtjz46rf7VZd89ms1pWE7RuROVxx2oosgAN2TIRy6kQAIf-bWvjInaI0lwSdM549Ys0BkzJD6besygvbSbEF4Ezqk1mNeHS7JV7VSvXeV9esisa1hl0TIpk_nF1d1cGIyNbwXMuA8qGC13pGSB9G8fiVsEmA3k88_HB5LwMa2oVBhoxedFEnoubC1zoHRc4o1gYr3dgp6mFPMVbowQ8mA7Ro9n7Pq3hSuOmKGH7XWcxSNa2Wqo0fnWxMTH1Wa559ar-NT_EsBP8Jr3HMCPrKxPO4ZLBWSWjOTbdaKfjOKagQYEBXN5v4uCxu6g-9INt9EXjMrUPsqc74URaN8JZlc9fPtUxxWlO95X262HD5KbkPTQb-j1jsebM2zoiIxQFCfyG40OZNnukNSpllfE6JKfn5CdevApOprUwnkZZd9Indqz_PhmnJU0hZoWUkFhAeseKTFvIHRejT_bMgriosNb0vRPpHmosoNnX5BzwoPOPpBvy9laSNMz1e7Zwa9nZRaEtgznBBhzwZE9CLXgfuVZSaVqOMhIKE4eDf5xILaE6a6dMAcKzEpdUNVNS1keaAjUB5e_RKdN5FjOBI_Za-_uV)
 
 ### Компонент API
 
-```plantuml
-!include <C4/C4_Container>
-
-left to right direction 
-
-System_Boundary(life, "API") {
-
-    Container(requirements, "Требования", "Определение цели, задач, требований тестирования и желаемой функциональности API")
-    Container(project, "Проектирование", "Создание проекта API внутри целевой системы, визуализация связей API с компонентами целевой системы")
-    Container(realisation, "Реализация", "Непосредственная разработка")
-    Container(integration, "Внедрение", "Настройка инструментов взаимодействия с целевой системой")
-    Container(acceptance_testing, "Тестирование API в среде исполнения", "Произведение тестирования API при взаимодействии с связанными компонентами системы")
-    Container(use, "Введение в эксплуатацию", "Эксплуатацияя и сопровождение API")
-}
-Container(done, "Вывод из эксплуатации")
-
-Rel(requirements, project, "Сбор и анализ требований для API")
-Rel(project, realisation, "Выбор технологического стека API для последующей реализации")
-Rel(realisation, integration, "Настройка связей с компонентами целевой системы")
-Rel(integration, acceptance_testing, "Произвидение Unit, Integration и System тестирования согласно стратегии тестирования API")
-Rel(acceptance_testing, requirements, "Валидация")
-Rel(acceptance_testing, use, "Пробный запуск")
-Rel(life, done, "")
-
-```
+[![](https://img.plantuml.biz/plantuml/dsvg/fLLDRzD04BtxLomv5IaIbnuHAlJK6m9nhgnaMumIfzYRGuMG6WfKgD1AlHTexqXkOZTkqYH_OVSVyMPsy-N4vK2bECr-l9atxyruArP-fDhDXlSe26kDTbsAfzkRJxOtTxTReVA3K4RFFAyXzvHGBH45-s-Lg0UHhAcW5GhFUtqOAzdSVT5gXtK_Ejne17koAYhFN-vK7eiFdYVmDqFQYEJxDYutPQXYdDBNvaXd-aQFTLSdUgHpSrwXzPzwmZifFaDyiACpORxopxmgT1_7KvsOawemdueW-WwBEZCTF7DiBg0BdGjzop09dlVOm-7FvXZR0-3dM1XXQsY-utji8GIpAL0vY5hlK0NAzXV7o01GYASpPdE5bJwbwtWmkUc5XD05RepCCLF9fpmpB79w7Q1I8iZNd5RfRAxxI3cXOb0fA75mmy6kEST2Xbk4QZf23u1nhoVC2uMaYFZzZo0hR2FfDuBO9z69qMySAqHdffTOdt3PM3q6xB9-A2fbU8HhVNv2BsmETB8IAmYLt8zciIuuyPGHvpMz15w7wuNi2GRAWXqleJJtZYkae7gHNN9Mcnnrv_AoDNke4hImafzVgya3vOSrkQjah89mdwsypd0GswehfYKX-G7FWWoj9BFgMHzHJRlE-yxtPMPcx0bxffmaQTsPUuFkZimfUw3S70-xeHrBgynodaJp1qnDx8RaJy9ZTvmnlpzhzyvjLs9dx1g3TBXTmBNjzz6R9r1lXJO34A7JAQdVBuckSzpsNib6OVmiTF0Ls_68fqDY1u05N3TRaDdG5X-u13i3AdG9PMTnMS4lD540FDOzq3uXJLc0dXuBL-p1T1pO4BQNs9iffiEP-SQjpJajjHzJj0mNCYWqqchBB0sC_naM57efsleUMJHulY3mcp10zNRc02I4VREKcvyDqwD1Zlz6heOqMZYldZN-0vtZqbwNQV4rTU6gdSw6NVbTrnkMwWstsfrzNqqW8HHtT-sBqXaPQriohECr_1S0)](https://editor.plantuml.com/uml/fLLDRzD04BtxLomv5IaIbnuHAlJK6m9nhgnaMumIfzYRGuMG6WfKgD1AlHTexqXkOZTkqYH_OVSVyMPsy-N4vK2bECr-l9atxyruArP-fDhDXlSe26kDTbsAfzkRJxOtTxTReVA3K4RFFAyXzvHGBH45-s-Lg0UHhAcW5GhFUtqOAzdSVT5gXtK_Ejne17koAYhFN-vK7eiFdYVmDqFQYEJxDYutPQXYdDBNvaXd-aQFTLSdUgHpSrwXzPzwmZifFaDyiACpORxopxmgT1_7KvsOawemdueW-WwBEZCTF7DiBg0BdGjzop09dlVOm-7FvXZR0-3dM1XXQsY-utji8GIpAL0vY5hlK0NAzXV7o01GYASpPdE5bJwbwtWmkUc5XD05RepCCLF9fpmpB79w7Q1I8iZNd5RfRAxxI3cXOb0fA75mmy6kEST2Xbk4QZf23u1nhoVC2uMaYFZzZo0hR2FfDuBO9z69qMySAqHdffTOdt3PM3q6xB9-A2fbU8HhVNv2BsmETB8IAmYLt8zciIuuyPGHvpMz15w7wuNi2GRAWXqleJJtZYkae7gHNN9Mcnnrv_AoDNke4hImafzVgya3vOSrkQjah89mdwsypd0GswehfYKX-G7FWWoj9BFgMHzHJRlE-yxtPMPcx0bxffmaQTsPUuFkZimfUw3S70-xeHrBgynodaJp1qnDx8RaJy9ZTvmnlpzhzyvjLs9dx1g3TBXTmBNjzz6R9r1lXJO34A7JAQdVBuckSzpsNib6OVmiTF0Ls_68fqDY1u05N3TRaDdG5X-u13i3AdG9PMTnMS4lD540FDOzq3uXJLc0dXuBL-p1T1pO4BQNs9iffiEP-SQjpJajjHzJj0mNCYWqqchBB0sC_naM57efsleUMJHulY3mcp10zNRc02I4VREKcvyDqwD1Zlz6heOqMZYldZN-0vtZqbwNQV4rTU6gdSw6NVbTrnkMwWstsfrzNqqW8HHtT-sBqXaPQriohECr_1S0)
